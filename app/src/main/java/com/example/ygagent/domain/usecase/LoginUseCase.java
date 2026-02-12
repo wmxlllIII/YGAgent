@@ -1,5 +1,6 @@
 package com.example.ygagent.domain.usecase;
 
+import com.example.ygagent.core.common.Result;
 import com.example.ygagent.domain.entity.User;
 import com.example.ygagent.domain.repository.UserRepository;
 
@@ -10,16 +11,13 @@ public class LoginUseCase {
         this.repository = repository;
     }
 
-    public User execute(String account, String password) throws Exception {
+    public Result<User> execute(String account, String password) {
 
         if (account == null || account.isEmpty()) {
-            throw new IllegalArgumentException("账号不能为空");
-        }
-
-        if (password == null || password.isEmpty()) {
-            throw new IllegalArgumentException("密码不能为空");
+            return Result.error("账号不能为空");
         }
 
         return repository.login(account, password);
     }
+
 }

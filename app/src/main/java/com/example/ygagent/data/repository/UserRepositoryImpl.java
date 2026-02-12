@@ -1,6 +1,8 @@
 package com.example.ygagent.data.repository;
 
+import com.example.ygagent.core.common.Result;
 import com.example.ygagent.data.mapper.UserMapper;
+import com.example.ygagent.data.remote.api.ApiResponse;
 import com.example.ygagent.data.remote.api.ApiService;
 import com.example.ygagent.data.remote.dto.req.LoginReqDto;
 import com.example.ygagent.data.remote.dto.resp.LoginRespDto;
@@ -20,22 +22,30 @@ public class UserRepositoryImpl implements UserRepository {
         this.apiService = apiService;
     }
     @Override
-    public User login(String account, String password) {
+    public Result<User> login(String account, String password) {
+
         try {
 
-            LoginReqDto req = new LoginReqDto(account, password);
-
-            Response<LoginRespDto> response =
-                    apiService.login(req).execute();
+            Response<ApiResponse<LoginRespDto>> response =
+                    apiService.login(new LoginReqDto(account, password)).execute();
 
             if (!response.isSuccessful() || response.body() == null) {
-                throw new RuntimeException("登录失败");
+                return Result.error("网络异常");
             }
 
-            return mapper.toDomain(response.body());
+            ApiResponse<LoginRespDto> apiResponse = response.body();
+
+            if (!apiResponse.isSuccess()) {
+                return Result.error(apiResponse.getMsg());
+            }
+
+            User user = mapper.toDomain(apiResponse.getData());
+
+            return Result.success(user);
 
         } catch (IOException e) {
-            throw new RuntimeException("网络异常", e);
+            return Result.error("网络异常");
         }
     }
+
 }
