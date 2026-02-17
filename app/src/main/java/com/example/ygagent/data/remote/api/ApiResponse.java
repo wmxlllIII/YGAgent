@@ -13,4 +13,13 @@ public class ApiResponse<T> {
     public boolean isSuccess() {
         return code == 0;
     }
+
+    @Override
+    public String toString() {
+        return "ApiResponse{" +
+                "code=" + code +
+                ", msg='" + msg + '\'' +
+                ", data=" + data +
+                '}';
+    }
 }
