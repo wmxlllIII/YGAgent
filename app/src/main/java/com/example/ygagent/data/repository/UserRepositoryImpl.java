@@ -7,7 +7,7 @@ import com.example.ygagent.core.common.Result;
 import com.example.ygagent.core.network.RetrofitFactory;
 import com.example.ygagent.data.mapper.UserMapper;
 import com.example.ygagent.data.remote.api.ApiResponse;
-import com.example.ygagent.data.remote.api.ApiService;
+import com.example.ygagent.data.remote.api.AuthApi;
 import com.example.ygagent.data.remote.dto.req.LoginReqDto;
 import com.example.ygagent.data.remote.dto.resp.LoginRespDto;
 import com.example.ygagent.domain.entity.User;
@@ -21,7 +21,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     public static final String TAG = "YG_UserRepositoryImpl";
 
-    private final ApiService apiService = RetrofitFactory.get().create(ApiService.class);
+    private final AuthApi authApi = RetrofitFactory.get().create(AuthApi.class);
     private final UserMapper mapper = new UserMapper();
 
     @Override
@@ -31,7 +31,7 @@ public class UserRepositoryImpl implements UserRepository {
             Log.d(TAG, "[test] login  #32");
 
             Response<ApiResponse<LoginRespDto>> response =
-                    apiService.login(new LoginReqDto(loginType, account, password)).execute();
+                    authApi.login(new LoginReqDto(loginType, account, password)).execute();
 
             if (!response.isSuccessful() || response.body() == null) {
                 return Result.error("网络异常");

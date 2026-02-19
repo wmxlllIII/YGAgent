@@ -6,6 +6,8 @@ import com.example.ygagent.domain.usecase.LoginUseCase;
 
 public class LoginController {
 
+    public static final String TAG = "YG_LoginController";
+
     private final LoginUseCase loginUseCase = new LoginUseCase();
 
     public interface Callback {

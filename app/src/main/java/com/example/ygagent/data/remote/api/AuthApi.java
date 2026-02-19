@@ -7,7 +7,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
 
-public interface ApiService {
+public interface AuthApi {
 
     @POST("user/login")
     Call<ApiResponse<LoginRespDto>> login(@Body LoginReqDto reqDto);

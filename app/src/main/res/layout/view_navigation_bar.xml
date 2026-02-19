@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingVertical="8dp"
+        android:paddingHorizontal="5dp">
+
+        <LinearLayout
+            android:id="@+id/ll_home_page"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_home"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="首页"
+                android:textSize="18dp"
+                android:gravity="center_horizontal"
+                android:textColor="@color/navigation_bar"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_task_page"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_task"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="任务"
+                android:textSize="18dp"
+                android:gravity="center_horizontal"
+                android:textColor="@color/navigation_bar"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_order_page"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_order"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="订单"
+                android:textSize="18dp"
+                android:gravity="center_horizontal"
+                android:textColor="@color/navigation_bar"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_mine_page"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_mine"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="我的"
+                android:textSize="18dp"
+                android:gravity="center_horizontal"
+                android:textColor="@color/navigation_bar"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>
