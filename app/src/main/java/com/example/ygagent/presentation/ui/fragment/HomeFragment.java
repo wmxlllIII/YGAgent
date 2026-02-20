@@ -18,7 +18,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> {
 
     @Override
     protected void initView() {
-        mBinding.tvLocation.setOnClickListener(v->{
+        mBinding.llLocation.setOnClickListener(v->{
             startActivity(new Intent(getActivity(), SearchActivity.class));
         });
     }

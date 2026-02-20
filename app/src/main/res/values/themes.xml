@@ -3,9 +3,4 @@
     <style name="Theme.YGAgent" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
-    <!-- Base application theme. -->
-    <style name="Base.Theme.YGAgent" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-    </style>
 </resources>
