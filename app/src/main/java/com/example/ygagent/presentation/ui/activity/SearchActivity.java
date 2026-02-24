@@ -31,8 +31,8 @@ public class SearchActivity extends BaseActivity<ActivitySearchBinding> {
     private Handler searchHandler = new Handler(Looper.getMainLooper());
     private Runnable searchRunnable;
     private SchoolController mSchoolController;
-    private SchoolController.Callback mSearchSchoolCallback = new SearchSchoolCallback();
-    private SearchSchoolAdapter mAdapter = new SearchSchoolAdapter(new OnSchoolClickListenerImpl());
+    private final SchoolController.Callback mSearchSchoolCallback = new SearchSchoolCallback();
+    private final SearchSchoolAdapter mAdapter = new SearchSchoolAdapter(new OnSchoolClickListenerImpl());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
