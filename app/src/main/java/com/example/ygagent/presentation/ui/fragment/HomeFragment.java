@@ -11,6 +11,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 
 import com.example.ygagent.databinding.FragmentHomeBinding;
 import com.example.ygagent.domain.entity.School;
+import com.example.ygagent.presentation.ui.activity.NewTaskActivity;
 import com.example.ygagent.presentation.ui.activity.SearchActivity;
 
 public class HomeFragment extends BaseFragment<FragmentHomeBinding> {
@@ -45,6 +46,12 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> {
         mBinding.llDestination.setOnClickListener(v -> {
 
         });
+
+        mBinding.tvNewTask.setOnClickListener(v->{
+            Intent intent = new Intent(getActivity(), NewTaskActivity.class);
+            startActivity(intent);
+        });
+
     }
 
     @Override
