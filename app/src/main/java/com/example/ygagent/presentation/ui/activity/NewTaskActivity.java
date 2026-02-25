@@ -28,7 +28,7 @@ public class NewTaskActivity extends BaseActivity<ActivityNewTaskBinding> {
 
     @Override
     protected void initView() {
-
+        mBinding.ivBack.setOnClickListener(v -> finish());
     }
 
     @Override

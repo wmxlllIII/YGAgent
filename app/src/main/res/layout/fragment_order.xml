@@ -18,7 +18,7 @@
                 android:layout_height="wrap_content"
                 android:text="订单"
                 android:textColor="#615F5F"
-                android:textSize="18dp"
+                android:textSize="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

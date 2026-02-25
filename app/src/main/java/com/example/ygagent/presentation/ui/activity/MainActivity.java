@@ -58,8 +58,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fl_container, homeFragment)
                 .add(R.id.fl_container, taskFragment).hide(taskFragment)
-                .add(R.id.fl_container, orderFragment).hide(taskFragment)
-                .add(R.id.fl_container, mineFragment).hide(taskFragment)
+                .add(R.id.fl_container, orderFragment).hide(orderFragment)
+                .add(R.id.fl_container, mineFragment).hide(mineFragment)
                 .commit();
 
         currentFragment = homeFragment;
