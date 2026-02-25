@@ -1,5 +1,6 @@
 package com.example.ygagent.presentation.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -99,6 +100,10 @@ public class SearchActivity extends BaseActivity<ActivitySearchBinding> {
 
         @Override
         public void onClick(School school) {
+            Intent intent = new Intent();
+            intent.putExtra("school",school);
+            setResult(RESULT_OK,intent);
+            finish();
             Toast.makeText(SearchActivity.this, "点击了" + school.getName(), Toast.LENGTH_SHORT).show();
         }
     }

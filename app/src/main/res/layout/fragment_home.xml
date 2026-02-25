@@ -90,6 +90,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_start_point"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -118,6 +119,7 @@
                 android:src="#00ffff" />
 
             <LinearLayout
+                android:id="@+id/ll_destination"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"

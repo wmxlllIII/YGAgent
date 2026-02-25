@@ -1,6 +1,8 @@
 package com.example.ygagent.domain.entity;
 
-public class School {
+import java.io.Serializable;
+
+public class School implements Serializable {
 
     private long id;
     private String name;
