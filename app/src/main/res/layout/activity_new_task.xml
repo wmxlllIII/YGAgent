@@ -217,6 +217,10 @@
                             android:inputType="textMultiLine"
                             android:textSize="16dp"
                             android:hint="取件码、取件短信等"/>
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@color/bg_common"
                     </LinearLayout>
                 </LinearLayout>
 
