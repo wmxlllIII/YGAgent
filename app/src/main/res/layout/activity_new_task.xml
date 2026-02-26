@@ -46,19 +46,21 @@
 
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
+                app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginTop="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:background="@color/white"
+                        android:orientation="vertical"
                         android:paddingVertical="10dp">
 
                         <RadioGroup
@@ -135,33 +137,39 @@
                                 android:layout_marginStart="10dp"
                                 android:orientation="horizontal">
 
-                                <TextView
+                                <RadioButton
+                                    android:id="@+id/rb_no_gender_limit"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1.5"
+                                    android:button="@null"
                                     android:gravity="center"
+                                    android:paddingVertical="10dp"
                                     android:text="不限性别"
-                                    android:paddingVertical="10dp"
                                     android:textColor="@color/black"
                                     android:textSize="16dp" />
 
-                                <TextView
+                                <RadioButton
+                                    android:id="@+id/rb_male"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
+                                    android:button="@null"
                                     android:gravity="center"
+                                    android:paddingVertical="10dp"
                                     android:text="男"
-                                    android:paddingVertical="10dp"
                                     android:textColor="@color/black"
                                     android:textSize="16dp" />
 
-                                <TextView
+                                <RadioButton
+                                    android:id="@+id/rb_female"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
+                                    android:button="@null"
                                     android:gravity="center"
-                                    android:text="女"
                                     android:paddingVertical="10dp"
+                                    android:text="女"
                                     android:textColor="@color/black"
                                     android:textSize="16dp" />
                             </RadioGroup>
@@ -169,58 +177,130 @@
                         </LinearLayout>
 
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:layout_marginTop="15dp"
-                        android:background="@color/white">
+                        android:background="@color/white"
+                        android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="16dp"
-                            android:textColor="@color/black"
-                            android:layout_marginTop="20dp"
                             android:layout_marginStart="20dp"
-                            android:text="隐私信息(仅接单员可见)"/>
+                            android:layout_marginTop="20dp"
+                            android:text="隐私信息(仅接单员可见)"
+                            android:textColor="@color/black"
+                            android:textSize="16dp" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
                             android:layout_marginTop="10dp">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="快捷输入："
-                                android:textSize="16dp"
-                                android:textColor="@color/black"/>
+                                android:textColor="@color/black"
+                                android:textSize="16dp" />
+
                             <TextView
+                                android:id="@+id/tv_pick_code"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="取件码"
-                                android:textSize="16dp"
-                                android:textColor="@color/black"/>
+                                android:textColor="@color/black"
+                                android:textSize="16dp" />
+
                             <TextView
+                                android:id="@+id/tv_phone_end"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="手机尾号"
-                                android:textSize="16dp"
-                                android:textColor="@color/black"/>
+                                android:textColor="@color/black"
+                                android:textSize="16dp" />
                         </LinearLayout>
+
                         <EditText
+                            android:id="@+id/et_content"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="20dp"
                             android:layout_marginTop="10dp"
-                            android:paddingVertical="20dp"
                             android:gravity="top|start"
+                            android:hint="取件码、取件短信等"
                             android:inputType="textMultiLine"
-                            android:textSize="16dp"
-                            android:hint="取件码、取件短信等"/>
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:src="@color/bg_common"
+                            android:paddingVertical="20dp"
+                            android:textSize="16dp" />
+                        <!--                        <androidx.recyclerview.widget.RecyclerView-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="wrap_content"/>-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="20dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="您的手机号"
+                                android:textColor="@color/black"
+                                android:textSize="16dp" />
+
+                            <EditText
+                                android:id="@+id/et_phone"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="20dp"
+                                android:layout_weight="1"
+                                android:text="13455556666" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="20dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="设置任务报酬"
+                                android:textColor="@color/black"
+                                android:textSize="16dp" />
+
+                            <EditText
+                                android:id="@+id/et_price"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:layout_toLeftOf="@id/tv_price_hint"
+                                android:inputType="number" />
+
+                            <TextView
+                                android:id="@+id/tv_price_hint"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:text="元"
+                                android:textColor="@color/black"
+                                android:textSize="16dp" />
+
+
+                        </RelativeLayout>
                     </LinearLayout>
                 </LinearLayout>
 
