@@ -10,4 +10,5 @@
 
 
     <color name="navigation_bar">#615F5F</color>
+    <color name="bg_common">#E7DEF1</color>
 </resources>

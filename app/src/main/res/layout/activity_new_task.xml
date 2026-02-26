@@ -12,8 +12,8 @@
             android:id="@+id/cl_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingVertical="10dp"
             android:paddingHorizontal="15dp"
+            android:paddingVertical="10dp"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
@@ -29,12 +29,200 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="快捷发布任务"
-                android:textColor="#615F5F"
+                android:textColor="@color/black"
                 android:textSize="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/bg_common"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_title">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@color/white"
+                        android:paddingVertical="10dp">
+
+                        <RadioGroup
+                            android:id="@+id/ll_region"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="15dp"
+                            android:paddingVertical="10dp">
+
+                            <RadioButton
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginHorizontal="5dp"
+                                android:layout_weight="1"
+                                android:button="@null"
+                                android:gravity="center"
+                                android:paddingVertical="10dp"
+                                android:text="葫芦岛校区"
+                                android:textColor="@color/black"
+                                android:textSize="16dp" />
+
+                            <RadioButton
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginHorizontal="5dp"
+                                android:layout_weight="1"
+                                android:button="@null"
+                                android:gravity="center"
+                                android:paddingVertical="10dp"
+                                android:text="盘锦校区"
+                                android:textColor="@color/black"
+                                android:textSize="16dp" />
+                        </RadioGroup>
+
+                        <EditText
+                            android:id="@+id/et_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="20dp"
+                            android:background="@color/bg_common"
+                            android:hint="请用简短的标题描述你的任务"
+                            android:paddingHorizontal="5dp"
+                            android:paddingVertical="10dp" />
+
+                        <EditText
+                            android:id="@+id/et_task"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_marginTop="12dp"
+                            android:background="@color/bg_common"
+                            android:hint="填写你的详细需求，勿输入手机号、取件码。请勿发布代考、代写论文等违法违规信息，仅可发布合理的辅导、指导需求。"
+                            android:paddingHorizontal="5dp"
+                            android:paddingVertical="10dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_marginTop="12dp"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="骑手性别要求"
+                                android:textColor="@color/black"
+                                android:textSize="16dp" />
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.5"
+                                    android:gravity="center"
+                                    android:text="不限性别"
+                                    android:paddingVertical="10dp"
+                                    android:textColor="@color/black"
+                                    android:textSize="16dp" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="男"
+                                    android:paddingVertical="10dp"
+                                    android:textColor="@color/black"
+                                    android:textSize="16dp" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="女"
+                                    android:paddingVertical="10dp"
+                                    android:textColor="@color/black"
+                                    android:textSize="16dp" />
+                            </RadioGroup>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="15dp"
+                        android:background="@color/white">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16dp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginStart="20dp"
+                            android:text="隐私信息(仅接单员可见)"/>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="10dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="快捷输入："
+                                android:textSize="16dp"
+                                android:textColor="@color/black"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="取件码"
+                                android:textSize="16dp"
+                                android:textColor="@color/black"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="手机尾号"
+                                android:textSize="16dp"
+                                android:textColor="@color/black"/>
+                        </LinearLayout>
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_marginTop="10dp"
+                            android:paddingVertical="20dp"
+                            android:gravity="top|start"
+                            android:inputType="textMultiLine"
+                            android:textSize="16dp"
+                            android:hint="取件码、取件短信等"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+            </ScrollView>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
