@@ -8,11 +8,11 @@ import com.example.ygagent.domain.entity.School;
 public class SearchSchoolCallback extends DiffUtil.ItemCallback<School> {
     @Override
     public boolean areItemsTheSame(@NonNull School oldItem, @NonNull School newItem) {
-        return false;
+        return oldItem.getId() == newItem.getId();
     }
 
     @Override
     public boolean areContentsTheSame(@NonNull School oldItem, @NonNull School newItem) {
-        return false;
+        return oldItem.getName().equals(newItem.getName());
     }
 }
