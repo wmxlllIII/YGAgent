@@ -17,6 +17,7 @@ import com.example.ygagent.databinding.ActivityNewTaskBinding;
 public class NewTaskActivity extends BaseActivity<ActivityNewTaskBinding> {
 
     public static final String TAG = "YG_NewTaskActivity";
+    private final EtPriceTextWatcher mTextWatcher = new EtPriceTextWatcher();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,21 +67,7 @@ public class NewTaskActivity extends BaseActivity<ActivityNewTaskBinding> {
             mBinding.etContent.setSelection(mBinding.etContent.getText().length());
         });
 
-        // ===== 价格监听（实时更新底部总价）=====
-        mBinding.etPrice.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                updateTotalPrice();
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            }
-        });
+        mBinding.etPrice.addTextChangedListener(mTextWatcher);
 
         // ===== 去支付 =====
         mBinding.tvPay.setOnClickListener(v -> {
@@ -135,6 +122,24 @@ public class NewTaskActivity extends BaseActivity<ActivityNewTaskBinding> {
             mBinding.tvTotalPrice.setText("￥ " + price);
         } catch (NumberFormatException e) {
             mBinding.tvTotalPrice.setText("￥ 0");
+        }
+    }
+
+    private class EtPriceTextWatcher implements TextWatcher{
+
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+            updateTotalPrice();
         }
     }
 

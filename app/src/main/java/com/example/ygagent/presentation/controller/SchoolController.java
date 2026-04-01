@@ -17,12 +17,8 @@ public class SchoolController {
     }
     public void searchSchool(String keyword, Callback callback) {
         new Thread(() -> {
-            try {
                 List<School> result = searchSchoolUseCase.execute(keyword).getData();
                 callback.onResult(result);
-            } catch (Exception e) {
-                callback.onError(e.getMessage());
-            }
         }).start();
     }
 }
