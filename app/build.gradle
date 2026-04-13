@@ -47,4 +47,6 @@ dependencies {
     implementation libs.okhttp.logging
 
     implementation libs.swiperefreshlayout
+
+    implementation libs.glide
 }
