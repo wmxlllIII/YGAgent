@@ -30,8 +30,23 @@
             android:id="@+id/cl_content"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cl_title">
+            app:layout_constraintTop_toBottomOf="@id/cl_title"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <!-- 刷新 -->
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/srl_refresh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!-- 任务列表 -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_task"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:listitem="@layout/item_task" />
+
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
