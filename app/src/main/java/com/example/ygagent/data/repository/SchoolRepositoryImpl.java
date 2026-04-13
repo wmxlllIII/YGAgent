@@ -52,6 +52,27 @@ public class SchoolRepositoryImpl implements SchoolRepository {
         }
     }
 
+    public Result<Boolean> updateSchool(School school) {
+        try {
+            Response<ApiResponse<Void>> response =
+                    schoolApi.updateSchool(new UpdateSchoolReqDto(
+                            school.getId(),
+                            school.getName(),
+                            school.getProvince(),
+                            school.getCity()
+                    )).execute();
+
+            if (!response.isSuccessful() || response.body() == null) {
+                return Result.error("更新失败");
+            }
+
+            return Result.success(true);
+        } catch (IOException e) {
+            Log.e(TAG, "[x] updateSchool error", e);
+            return Result.error("网络异常");
+        }
+    }
+
     @Override
     public void refreshIfNeeded() {
 
