@@ -12,7 +12,7 @@ import retrofit2.Call;
 import retrofit2.Response;
 
 public class NetFactory {
-    private static final String TAG = "NetworkHelper";
+    private static final String TAG = "NetFactory";
 
     public interface ApiCall<T> {
         Call<ApiResponse<T>> execute();

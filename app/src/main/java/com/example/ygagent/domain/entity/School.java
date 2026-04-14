@@ -24,6 +24,14 @@ public class School implements Serializable {
         return name;
     }
 
+    public String getProvince() {
+        return province;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
     @Override
     public String toString() {
         return "School{" +

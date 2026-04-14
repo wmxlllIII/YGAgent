@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.example.ygagent.common.constants.LoginType;
 import com.example.ygagent.core.common.Result;
+import com.example.ygagent.core.network.NetFactory;
 import com.example.ygagent.core.network.RetrofitFactory;
 import com.example.ygagent.data.mapper.UserMapper;
 import com.example.ygagent.data.remote.api.ApiResponse;
@@ -26,32 +27,19 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public Result<User> login(LoginType loginType, String account, String password) {
+        Log.d(TAG, "[test] login  #32");
 
-        try {
-            Log.d(TAG, "[test] login  #32");
+        LoginReqDto reqDto = new LoginReqDto(loginType, account, password);
 
-            Response<ApiResponse<LoginRespDto>> response =
-                    authApi.login(new LoginReqDto(loginType, account, password)).execute();
+        Result<LoginRespDto> result = NetFactory.executeCall(() -> authApi.login(reqDto));
 
-            if (!response.isSuccessful() || response.body() == null) {
-                return Result.error("网络异常");
-            }
-
-            ApiResponse<LoginRespDto> apiResponse = response.body();
-            Log.d(TAG, "[test] login #35" + apiResponse);
-
-            if (!apiResponse.isSuccess()) {
-                return Result.error(apiResponse.getMsg());
-            }
-
-            User user = mapper.toDomain(apiResponse.getData());
-
-            return Result.success(user);
-
-        } catch (IOException e) {
-            Log.d(TAG, "[x] login  #52" + e.getMessage());
-            return Result.error("网络异常");
+        if (!result.isSuccess()) {
+            return Result.error(result.getError());
         }
+
+        User user = mapper.toDomain(result.getData());
+
+        return Result.success(user);
     }
 
 }

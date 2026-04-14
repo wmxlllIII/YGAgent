@@ -1,6 +1,7 @@
 package com.example.ygagent.data.remote.api;
 
 import com.example.ygagent.data.remote.dto.req.SearchSchoolReqDto;
+import com.example.ygagent.data.remote.dto.req.UpdateSchoolReqDto;
 import com.example.ygagent.data.remote.dto.resp.SearchSchoolRespDto;
 
 import java.util.List;
@@ -12,4 +13,7 @@ import retrofit2.http.POST;
 public interface SchoolApi {
     @POST("school/search")
     Call<ApiResponse<List<SearchSchoolRespDto>>> searchSchool(@Body SearchSchoolReqDto reqDto);
+
+    @POST("school/update") // 换成你真实的接口地址
+    Call<ApiResponse<Void>> updateSchool(@Body UpdateSchoolReqDto reqDto);
 }

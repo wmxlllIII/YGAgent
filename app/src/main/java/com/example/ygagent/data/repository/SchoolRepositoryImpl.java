@@ -3,11 +3,13 @@ package com.example.ygagent.data.repository;
 import android.util.Log;
 
 import com.example.ygagent.core.common.Result;
+import com.example.ygagent.core.network.NetFactory;
 import com.example.ygagent.core.network.RetrofitFactory;
 import com.example.ygagent.data.mapper.SchoolMapper;
 import com.example.ygagent.data.remote.api.ApiResponse;
 import com.example.ygagent.data.remote.api.SchoolApi;
 import com.example.ygagent.data.remote.dto.req.SearchSchoolReqDto;
+import com.example.ygagent.data.remote.dto.req.UpdateSchoolReqDto;
 import com.example.ygagent.data.remote.dto.resp.SearchSchoolRespDto;
 import com.example.ygagent.domain.entity.School;
 import com.example.ygagent.domain.repository.SchoolRepository;
@@ -27,50 +29,46 @@ public class SchoolRepositoryImpl implements SchoolRepository {
 
     @Override
     public Result<List<School>> search(String keyword) {
-        try {
-            Response<ApiResponse<List<SearchSchoolRespDto>>> response =
-                    schoolApi.searchSchool(new SearchSchoolReqDto(keyword)).execute();
+        Log.d(TAG, "[test] search");
 
-            if (!response.isSuccessful() || response.body() == null) {
-                return Result.error("网络异常");
-            }
+        Result<List<SearchSchoolRespDto>> result = NetFactory.executeCall(
+                () -> schoolApi.searchSchool(new SearchSchoolReqDto(keyword))
+        );
 
-            List<SearchSchoolRespDto> dtoList = response.body().getData();
-            if (dtoList.isEmpty()) {
-                Log.d(TAG, "[x] search #40");
-                return Result.error("没有搜索结果");
-            }
-
-            List<School> result = new ArrayList<>();
-            dtoList.forEach(dto -> result.add(mapper.toDomain(dto)));
-
-
-            return Result.success(result);
-        } catch (IOException e) {
-            Log.d(TAG, "[x] search #50");
-            return Result.error("网络异常");
+        if (!result.isSuccess()) {
+            return Result.error(result.getError());
         }
+
+        List<SearchSchoolRespDto> dtoList = result.getData();
+
+        if (dtoList == null || dtoList.isEmpty()) {
+            Log.d(TAG, "[x] search #40");
+            return Result.error("没有搜索结果");
+        }
+
+        List<School> schoolList = new ArrayList<>();
+        dtoList.forEach(dto -> schoolList.add(mapper.toDomain(dto)));
+
+        return Result.success(schoolList);
     }
 
     public Result<Boolean> updateSchool(School school) {
-        try {
-            Response<ApiResponse<Void>> response =
-                    schoolApi.updateSchool(new UpdateSchoolReqDto(
-                            school.getId(),
-                            school.getName(),
-                            school.getProvince(),
-                            school.getCity()
-                    )).execute();
+        Log.d(TAG, "[test] updateSchool");
 
-            if (!response.isSuccessful() || response.body() == null) {
-                return Result.error("更新失败");
-            }
+        Result<Void> result = NetFactory.executeCall(
+                () -> schoolApi.updateSchool(new UpdateSchoolReqDto(
+                        school.getId(),
+                        school.getName(),
+                        school.getProvince(),
+                        school.getCity()
+                ))
+        );
 
-            return Result.success(true);
-        } catch (IOException e) {
-            Log.e(TAG, "[x] updateSchool error", e);
-            return Result.error("网络异常");
+        if (!result.isSuccess()) {
+            return Result.error(result.getError());
         }
+
+        return Result.success(true);
     }
 
     @Override
