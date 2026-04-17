@@ -1,13 +1,21 @@
 package com.example.ygagent.data.remote.dto.resp;
 
 public class SearchSchoolRespDto {
-    private long id;
-    private String name;
+    private int schoolId;
+    private String schoolName;
     private String province;
     private String city;
 
-    public long getId() { return id; }
-    public String getName() { return name; }
+    private int campusId;
+    private String campusName;
+
+    public int getSchoolId() {
+        return schoolId;
+    }
+
+    public String getSchoolName() {
+        return schoolName;
+    }
 
     public String getProvince() {
         return province;
@@ -15,5 +23,13 @@ public class SearchSchoolRespDto {
 
     public String getCity() {
         return city;
+    }
+
+    public int getCampusId() {
+        return campusId;
+    }
+
+    public String getCampusName() {
+        return campusName;
     }
 }

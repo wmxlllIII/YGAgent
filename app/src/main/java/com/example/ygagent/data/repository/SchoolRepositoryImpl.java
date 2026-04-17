@@ -57,10 +57,8 @@ public class SchoolRepositoryImpl implements SchoolRepository {
 
         Result<Void> result = NetFactory.executeCall(
                 () -> schoolApi.updateSchool(new UpdateSchoolReqDto(
-                        school.getId(),
-                        school.getName(),
-                        school.getProvince(),
-                        school.getCity()
+                        school.getSchoolId(),
+                        school.getCampusId()
                 ))
         );
 

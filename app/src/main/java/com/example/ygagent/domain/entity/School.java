@@ -3,25 +3,31 @@ package com.example.ygagent.domain.entity;
 import java.io.Serializable;
 
 public class School implements Serializable {
-
-    private long id;
-    private String name;
+    private int schoolId;
+    private String schoolName;
     private String province;
     private String city;
 
-    public School(long id, String name, String province, String city) {
-        this.id = id;
-        this.name = name;
+    private int campusId;
+    private String campusName;
+
+
+    public School(int schoolId, String schoolName, String province, String city, int campusId, String campusName) {
+        this.schoolId = schoolId;
+        this.schoolName = schoolName;
         this.province = province;
         this.city = city;
+        this.campusId = campusId;
+        this.campusName = campusName;
     }
 
-    public long getId() {
-        return id;
+    public int getSchoolId() {
+
+        return schoolId;
     }
 
-    public String getName() {
-        return name;
+    public String getSchoolName() {
+        return schoolName;
     }
 
     public String getProvince() {
@@ -32,13 +38,23 @@ public class School implements Serializable {
         return city;
     }
 
+    public int getCampusId() {
+        return campusId;
+    }
+
+    public String getCampusName() {
+        return campusName;
+    }
+
     @Override
     public String toString() {
         return "School{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "schoolId=" + schoolId +
+                ", schoolName='" + schoolName + '\'' +
                 ", province='" + province + '\'' +
                 ", city='" + city + '\'' +
+                ", campusId=" + campusId +
+                ", campusName='" + campusName + '\'' +
                 '}';
     }
 }

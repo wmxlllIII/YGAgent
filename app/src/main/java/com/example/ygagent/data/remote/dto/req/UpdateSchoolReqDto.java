@@ -1,31 +1,19 @@
 package com.example.ygagent.data.remote.dto.req;
 
 public class UpdateSchoolReqDto {
-    private long schoolId;
-    private String schoolName;
-    private String province;
-    private String city;
+    private int schoolId;
+    private int campusId;
 
-    public UpdateSchoolReqDto(long schoolId, String schoolName, String province, String city) {
+    public UpdateSchoolReqDto(int schoolId, int campusId) {
         this.schoolId = schoolId;
-        this.schoolName = schoolName;
-        this.province = province;
-        this.city = city;
+        this.campusId = campusId;
     }
 
-    public long getSchoolId() {
+    public int getSchoolId() {
         return schoolId;
     }
 
-    public String getSchoolName() {
-        return schoolName;
-    }
-
-    public String getProvince() {
-        return province;
-    }
-
-    public String getCity() {
-        return city;
+    public int getCampusId() {
+        return campusId;
     }
 }

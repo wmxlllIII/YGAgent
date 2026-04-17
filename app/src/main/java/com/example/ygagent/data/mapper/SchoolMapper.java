@@ -7,10 +7,12 @@ public class SchoolMapper {
 
     public School toDomain(SearchSchoolRespDto dto) {
         return new School(
-                dto.getId(),
-                dto.getName(),
+                dto.getSchoolId(),
+                dto.getSchoolName(),
                 dto.getProvince(),
-                dto.getCity()
+                dto.getCity(),
+                dto.getCampusId(),
+                dto.getCampusName()
         );
     }
 }

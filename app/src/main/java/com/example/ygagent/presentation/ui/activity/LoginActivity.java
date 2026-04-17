@@ -7,6 +7,7 @@ import com.example.ygagent.R;
 import com.example.ygagent.common.constants.LoginType;
 import com.example.ygagent.databinding.ActivityLoginBinding;
 import com.example.ygagent.domain.entity.User;
+import com.example.ygagent.presentation.controller.DataCallback;
 import com.example.ygagent.presentation.controller.LoginController;
 
 public class LoginActivity extends BaseActivity<ActivityLoginBinding> {
@@ -14,7 +15,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> {
     private static final String TAG = "YG_LoginActivity";
 
     private LoginController mLoginController;
-    private final LoginController.Callback mLoginCallback = new LoginCallback();
+    private final LoginCallback mLoginCallback = new LoginCallback();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> {
         mLoginController = new LoginController();
     }
 
-    private class LoginCallback implements LoginController.Callback {
+    private class LoginCallback implements DataCallback<User> {
 
         @Override
         public void onSuccess(User user) {
