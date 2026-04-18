@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.ygagent.R;
 import com.example.ygagent.databinding.ActivitySearchBinding;
 import com.example.ygagent.domain.entity.School;
+import com.example.ygagent.presentation.controller.DataCallback;
 import com.example.ygagent.presentation.controller.SchoolController;
 import com.example.ygagent.presentation.ui.adapter.SearchSchoolAdapter;
 import com.example.ygagent.presentation.ui.adapter.listener.OnSchoolClickListener;
@@ -26,7 +27,7 @@ public class SearchActivity extends BaseActivity<ActivitySearchBinding> {
     private final Handler mSearchHandler = new Handler(Looper.getMainLooper());
     private Runnable searchRunnable;
     private final SchoolController mSchoolController = new SchoolController();
-    private final SchoolController.Callback mSearchSchoolCallback = new SearchSchoolCallback();
+    private final SearchSchoolCallback mSearchSchoolCallback = new SearchSchoolCallback();
     private final SearchSchoolAdapter mAdapter = new SearchSchoolAdapter(new OnSchoolClickListenerImpl());
     private final EtSchoolTextWatcher mEtSchoolTextWatcher = new EtSchoolTextWatcher();
 
@@ -54,10 +55,10 @@ public class SearchActivity extends BaseActivity<ActivitySearchBinding> {
         mBinding.tvCancel.setOnClickListener(v -> finish());
     }
 
-    private class SearchSchoolCallback implements SchoolController.Callback {
+    private class SearchSchoolCallback implements DataCallback<List<School>> {
 
         @Override
-        public void onResult(List<School> list) {
+        public void onSuccess(List<School> list) {
             runOnUiThread(() -> mAdapter.submitList(list));
         }
 
@@ -75,7 +76,7 @@ public class SearchActivity extends BaseActivity<ActivitySearchBinding> {
             intent.putExtra("school", school);
             setResult(RESULT_OK, intent);
             finish();
-            Toast.makeText(SearchActivity.this, "点击了" + school.getName(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(SearchActivity.this, "点击了" + school.getDisplayName(), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -99,7 +100,7 @@ public class SearchActivity extends BaseActivity<ActivitySearchBinding> {
 
             String keyword = str.toString().trim();
             searchRunnable = () -> mSchoolController.searchSchool(keyword, mSearchSchoolCallback);
-            mSearchHandler.postDelayed(searchRunnable, 250);
+            mSearchHandler.postDelayed(searchRunnable, 200);
         }
     }
 }

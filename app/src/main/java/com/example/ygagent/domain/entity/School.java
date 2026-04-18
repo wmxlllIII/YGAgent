@@ -1,5 +1,7 @@
 package com.example.ygagent.domain.entity;
 
+import android.text.TextUtils;
+
 import java.io.Serializable;
 
 public class School implements Serializable {
@@ -44,6 +46,14 @@ public class School implements Serializable {
 
     public String getCampusName() {
         return campusName;
+    }
+
+    public String getDisplayName() {
+        if (TextUtils.isEmpty(campusName)) {
+            return schoolName;
+        }
+
+        return schoolName + "(" + campusName + ")";
     }
 
     @Override

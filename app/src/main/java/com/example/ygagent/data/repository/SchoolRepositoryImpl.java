@@ -14,11 +14,10 @@ import com.example.ygagent.data.remote.dto.resp.SearchSchoolRespDto;
 import com.example.ygagent.domain.entity.School;
 import com.example.ygagent.domain.repository.SchoolRepository;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import retrofit2.Response;
+
 
 public class SchoolRepositoryImpl implements SchoolRepository {
 

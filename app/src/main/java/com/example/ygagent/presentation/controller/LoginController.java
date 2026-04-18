@@ -10,7 +10,6 @@ import com.example.ygagent.core.common.Result;
 import com.example.ygagent.data.repository.UserRepositoryImpl;
 import com.example.ygagent.domain.entity.User;
 import com.example.ygagent.domain.repository.UserRepository;
-import com.example.ygagent.domain.usecase.LoginUseCase;
 
 public class LoginController {
 

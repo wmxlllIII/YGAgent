@@ -23,6 +23,6 @@ public class SearchSchoolViewHolder extends RecyclerView.ViewHolder {
     public void bind(School school) {
         mBinding.getRoot().setOnClickListener(v -> mListener.onClick(school));
 
-        mBinding.tvName.setText(school.getName());
+        mBinding.tvName.setText(school.getDisplayName());
     }
 }
