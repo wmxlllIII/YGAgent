@@ -11,8 +11,8 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.ygagent.R;
+import com.example.ygagent.data.remote.vo.SchoolVO;
 import com.example.ygagent.databinding.ActivitySearchBinding;
-import com.example.ygagent.domain.entity.School;
 import com.example.ygagent.presentation.controller.DataCallback;
 import com.example.ygagent.presentation.controller.SchoolController;
 import com.example.ygagent.presentation.ui.adapter.SearchSchoolAdapter;
@@ -55,10 +55,10 @@ public class SearchActivity extends BaseActivity<ActivitySearchBinding> {
         mBinding.tvCancel.setOnClickListener(v -> finish());
     }
 
-    private class SearchSchoolCallback implements DataCallback<List<School>> {
+    private class SearchSchoolCallback implements DataCallback<List<SchoolVO>> {
 
         @Override
-        public void onSuccess(List<School> list) {
+        public void onSuccess(List<SchoolVO> list) {
             runOnUiThread(() -> mAdapter.submitList(list));
         }
 
@@ -71,7 +71,7 @@ public class SearchActivity extends BaseActivity<ActivitySearchBinding> {
     private class OnSchoolClickListenerImpl implements OnSchoolClickListener {
 
         @Override
-        public void onClick(School school) {
+        public void onClick(SchoolVO school) {
             Intent intent = new Intent();
             intent.putExtra("school", school);
             setResult(RESULT_OK, intent);

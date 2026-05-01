@@ -11,9 +11,9 @@ import retrofit2.http.Body;
 import retrofit2.http.POST;
 
 public interface SchoolApi {
-    @POST("school/search")
-    Call<ApiResponse<List<SearchSchoolRespDto>>> searchSchool(@Body SearchSchoolReqDto reqDto);
+    @POST("/school/search")
+    Call<ApiResponse<SearchSchoolRespDto>> searchSchool(@Body SearchSchoolReqDto reqDto);
 
-    @POST("school/bind")
+    @POST("/school/bind")
     Call<ApiResponse<Void>> updateSchool(@Body UpdateSchoolReqDto reqDto);
 }

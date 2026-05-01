@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 
+import com.example.ygagent.data.remote.vo.SchoolVO;
 import com.example.ygagent.databinding.FragmentHomeBinding;
-import com.example.ygagent.domain.entity.School;
 import com.example.ygagent.presentation.ui.activity.NewTaskActivity;
 import com.example.ygagent.presentation.ui.activity.SearchActivity;
 
@@ -22,7 +22,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> {
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
                     result -> {
                         if (result.getResultCode() == RESULT_OK && result.getData() != null) {
-                            School school = (School) result.getData().getSerializableExtra("school");
+                            SchoolVO school = (SchoolVO) result.getData().getSerializableExtra("school");
 
                         }
                     });

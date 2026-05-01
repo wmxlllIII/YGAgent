@@ -6,12 +6,11 @@ import com.example.ygagent.core.common.Result;
 import com.example.ygagent.core.network.NetFactory;
 import com.example.ygagent.core.network.RetrofitFactory;
 import com.example.ygagent.data.mapper.SchoolMapper;
-import com.example.ygagent.data.remote.api.ApiResponse;
 import com.example.ygagent.data.remote.api.SchoolApi;
 import com.example.ygagent.data.remote.dto.req.SearchSchoolReqDto;
 import com.example.ygagent.data.remote.dto.req.UpdateSchoolReqDto;
 import com.example.ygagent.data.remote.dto.resp.SearchSchoolRespDto;
-import com.example.ygagent.domain.entity.School;
+import com.example.ygagent.data.remote.vo.SchoolVO;
 import com.example.ygagent.domain.repository.SchoolRepository;
 
 import java.util.ArrayList;
@@ -27,10 +26,10 @@ public class SchoolRepositoryImpl implements SchoolRepository {
     private final SchoolMapper mapper = new SchoolMapper();
 
     @Override
-    public Result<List<School>> search(String keyword) {
+    public Result<List<SchoolVO>> search(String keyword) {
         Log.d(TAG, "[test] search");
 
-        Result<List<SearchSchoolRespDto>> result = NetFactory.executeCall(
+        Result<SearchSchoolRespDto> result = NetFactory.executeCall(
                 () -> schoolApi.searchSchool(new SearchSchoolReqDto(keyword))
         );
 
@@ -38,26 +37,26 @@ public class SchoolRepositoryImpl implements SchoolRepository {
             return Result.error(result.getError());
         }
 
-        List<SearchSchoolRespDto> dtoList = result.getData();
+        SearchSchoolRespDto respDto = result.getData();
 
-        if (dtoList == null || dtoList.isEmpty()) {
+        if (respDto.getSchools() == null || respDto.getSchools().isEmpty()) {
             Log.d(TAG, "[x] search #40");
             return Result.error("没有搜索结果");
         }
 
-        List<School> schoolList = new ArrayList<>();
-        dtoList.forEach(dto -> schoolList.add(mapper.toDomain(dto)));
+        List<SchoolVO> schoolList = new ArrayList<>();
+        respDto.getSchools().forEach(dto -> schoolList.add(mapper.toDomain(dto)));
 
         return Result.success(schoolList);
     }
 
-    public Result<Boolean> updateSchool(School school) {
+    public Result<Boolean> updateSchool(int schoolId, int campusId) {
         Log.d(TAG, "[test] updateSchool");
 
         Result<Void> result = NetFactory.executeCall(
                 () -> schoolApi.updateSchool(new UpdateSchoolReqDto(
-                        school.getSchoolId(),
-                        school.getCampusId()
+                        schoolId,
+                        campusId
                 ))
         );
 

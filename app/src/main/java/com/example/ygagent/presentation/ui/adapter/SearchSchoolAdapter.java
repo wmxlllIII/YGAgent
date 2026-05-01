@@ -7,13 +7,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.ygagent.data.remote.vo.SchoolVO;
 import com.example.ygagent.databinding.ItemSearchSchoolBinding;
-import com.example.ygagent.domain.entity.School;
 import com.example.ygagent.presentation.ui.adapter.diffcallback.SearchSchoolCallback;
 import com.example.ygagent.presentation.ui.adapter.listener.OnSchoolClickListener;
 import com.example.ygagent.presentation.ui.adapter.viewholder.SearchSchoolViewHolder;
 
-public class SearchSchoolAdapter extends ListAdapter<School, RecyclerView.ViewHolder> {
+public class SearchSchoolAdapter extends ListAdapter<SchoolVO, RecyclerView.ViewHolder> {
 
     public static final String TAG = "YG_SearchSchoolAdapter";
 

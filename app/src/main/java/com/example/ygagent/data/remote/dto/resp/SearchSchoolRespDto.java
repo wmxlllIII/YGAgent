@@ -1,35 +1,24 @@
 package com.example.ygagent.data.remote.dto.resp;
 
+import com.example.ygagent.data.dos.SchoolDO;
+
+import java.util.List;
+
 public class SearchSchoolRespDto {
-    private int schoolId;
-    private String schoolName;
-    private String province;
-    private String city;
+    private List<SchoolDO> schools;
 
-    private int campusId;
-    private String campusName;
-
-    public int getSchoolId() {
-        return schoolId;
+    public List<SchoolDO> getSchools() {
+        return schools;
     }
 
-    public String getSchoolName() {
-        return schoolName;
+    public void setSchools(List<SchoolDO> schools) {
+        this.schools = schools;
     }
 
-    public String getProvince() {
-        return province;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public int getCampusId() {
-        return campusId;
-    }
-
-    public String getCampusName() {
-        return campusName;
+    @Override
+    public String toString() {
+        return "SearchSchoolRespDto{" +
+                "schools=" + schools +
+                '}';
     }
 }

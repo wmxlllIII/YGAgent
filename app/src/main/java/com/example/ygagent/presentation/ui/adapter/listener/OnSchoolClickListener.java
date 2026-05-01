@@ -1,7 +1,7 @@
 package com.example.ygagent.presentation.ui.adapter.listener;
 
-import com.example.ygagent.domain.entity.School;
+import com.example.ygagent.data.remote.vo.SchoolVO;
 
 public interface OnSchoolClickListener {
-    void onClick(School school);
+    void onClick(SchoolVO school);
 }

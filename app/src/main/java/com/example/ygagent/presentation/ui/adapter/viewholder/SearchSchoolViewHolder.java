@@ -1,12 +1,9 @@
 package com.example.ygagent.presentation.ui.adapter.viewholder;
 
-import android.view.View;
-
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.ygagent.data.remote.vo.SchoolVO;
 import com.example.ygagent.databinding.ItemSearchSchoolBinding;
-import com.example.ygagent.domain.entity.School;
 import com.example.ygagent.presentation.ui.adapter.listener.OnSchoolClickListener;
 
 public class SearchSchoolViewHolder extends RecyclerView.ViewHolder {
@@ -20,7 +17,7 @@ public class SearchSchoolViewHolder extends RecyclerView.ViewHolder {
         this.mListener = listener;
     }
 
-    public void bind(School school) {
+    public void bind(SchoolVO school) {
         mBinding.getRoot().setOnClickListener(v -> mListener.onClick(school));
 
         mBinding.tvName.setText(school.getDisplayName());

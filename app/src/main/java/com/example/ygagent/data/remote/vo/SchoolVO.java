@@ -1,10 +1,10 @@
-package com.example.ygagent.domain.entity;
+package com.example.ygagent.data.remote.vo;
 
 import android.text.TextUtils;
 
 import java.io.Serializable;
 
-public class School implements Serializable {
+public class SchoolVO implements Serializable {
     private int schoolId;
     private String schoolName;
     private String province;
@@ -13,8 +13,7 @@ public class School implements Serializable {
     private int campusId;
     private String campusName;
 
-
-    public School(int schoolId, String schoolName, String province, String city, int campusId, String campusName) {
+    public SchoolVO(int schoolId, String schoolName, String province, String city, int campusId, String campusName) {
         this.schoolId = schoolId;
         this.schoolName = schoolName;
         this.province = province;
@@ -24,7 +23,6 @@ public class School implements Serializable {
     }
 
     public int getSchoolId() {
-
         return schoolId;
     }
 
@@ -54,17 +52,5 @@ public class School implements Serializable {
         }
 
         return schoolName + "(" + campusName + ")";
-    }
-
-    @Override
-    public String toString() {
-        return "School{" +
-                "schoolId=" + schoolId +
-                ", schoolName='" + schoolName + '\'' +
-                ", province='" + province + '\'' +
-                ", city='" + city + '\'' +
-                ", campusId=" + campusId +
-                ", campusName='" + campusName + '\'' +
-                '}';
     }
 }

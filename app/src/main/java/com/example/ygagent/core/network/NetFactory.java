@@ -1,11 +1,7 @@
 package com.example.ygagent.core.network;
 
-import android.os.Handler;
-import android.os.Looper;
 import android.util.Log;
 
-
-import com.example.ygagent.common.utils.WorkerThread;
 import com.example.ygagent.core.common.Result;
 import com.example.ygagent.data.remote.api.ApiResponse;
 
@@ -16,7 +12,6 @@ import retrofit2.Response;
 
 public class NetFactory {
     private static final String TAG = "NetFactory";
-    private static final Handler mHandler = new Handler(Looper.getMainLooper());
 
     public interface ApiCall<T> {
         Call<ApiResponse<T>> execute();
@@ -31,6 +26,7 @@ public class NetFactory {
             Response<ApiResponse<T>> response = apiCall.execute().execute();
             if (response.isSuccessful() && response.body() != null) {
                 ApiResponse<T> apiResponse = response.body();
+                Log.d("[test]", "net apiResponse " + apiResponse);
                 if (apiResponse.isSuccess()) {
                     return Result.success(apiResponse.getData());
                 } else {
