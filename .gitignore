@@ -1,5 +1,5 @@
 # Gradle files
-.idea
+.idea/
 .gradle/
 build/
 
